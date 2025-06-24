@@ -74,7 +74,7 @@ export default class Cards extends Phaser.Scene{
             });
         }
         endgame(){
-            this.time.delayedCall(200,()=>{
+            this.time.delayedCall(280,()=>{
                 this.scene.start('ResultScene',{result:this.result});
             })
         }
