@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import Cards from './scenes/Cards';
-import ResultScene from './scenes/ResultScene';
+import ResultScene from './scenes/ResultScene.js';
 const config = {
   type:Phaser.AUTO,
   height :600,
