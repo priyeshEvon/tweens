@@ -15,8 +15,10 @@ export default class Cards extends Phaser.Scene{
         //cards display 
         this.flips=0;
         this.maxflips=2;
+        this.chances=2;
         this.result=0;
         const { width, height } = this.scale;
+        this.chanceText=this.add.text(width-110,height-550,`Chances :${this.chances}`,{font:"20px",style:"#ffffff",stroke:"#cdb911",strokeThickness:"1"})
         const cardKeys = ['King', 'Ace', 'Queen', 'Joker'];
         Phaser.Utils.Array.Shuffle(cardKeys); //shuffle the positions at every restart
 
@@ -57,6 +59,8 @@ export default class Cards extends Phaser.Scene{
                         scaleX:0.5,                       
                     })
                     this.flips++;
+                    this.chances--;
+                    this.chanceText.setText(`Chances: ${this.chances}`);
                     if(card.Orignal==='Ace'){
                         this.result=1;
                         this.endgame();
@@ -70,7 +74,7 @@ export default class Cards extends Phaser.Scene{
             });
         }
         endgame(){
-            this.time.delayedCall(500,()=>{
+            this.time.delayedCall(200,()=>{
                 this.scene.start('ResultScene',{result:this.result});
             })
         }
