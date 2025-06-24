@@ -18,10 +18,11 @@ export default class Cards extends Phaser.Scene{
         this.result=0;
         const { width, height } = this.scale;
         const cardKeys = ['King', 'Ace', 'Queen', 'Joker'];
+        Phaser.Utils.Array.Shuffle(cardKeys); //shuffle the positions at every restart
 
         const cols = 2;
         const spacingX = 200;
-        const spacingY = 200;
+        const spacingY = 200;   
         const startX = width / 2 - spacingX / 1.5;
         const startY = height / 2 - spacingY;
 
